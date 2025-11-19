@@ -1,3 +1,4 @@
+
 import { GoogleGenAI } from "@google/genai";
 
 // Note: In a real production app, never expose keys on the client side directly if not using an env var strictly.
@@ -6,8 +7,14 @@ import { GoogleGenAI } from "@google/genai";
 let ai: GoogleGenAI | null = null;
 
 try {
-    if (process.env.API_KEY) {
-        ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    // Check if process is defined to avoid ReferenceError in browser environments
+    // @ts-ignore
+    const apiKey = typeof process !== 'undefined' && process.env ? process.env.API_KEY : undefined;
+    
+    if (apiKey) {
+        ai = new GoogleGenAI({ apiKey });
+    } else {
+        console.warn("Gemini API Key missing or process.env not available - AI features will be disabled.");
     }
 } catch (e) {
     console.error("Failed to initialize GoogleGenAI", e);
@@ -15,18 +22,18 @@ try {
 
 export const analyzeTokenPotential = async (tokenSymbol: string, currentPrice: number, trend: number): Promise<string> => {
     if (!ai) {
-        return "AI Analysis Unavailable: API Key missing.";
+        return "Análisis de IA no disponible: Falta API Key o configuración de entorno.";
     }
 
     try {
         const prompt = `
-        Act as a high-stakes crypto analyst for the Solana ecosystem.
-        Analyze the potential of a social token called $${tokenSymbol}.
-        Current Price: ${currentPrice} SOL.
-        24h Trend: ${trend > 0 ? '+' : ''}${trend}%.
+        Actúa como un analista experto en criptomonedas (Crypto Degen) para el ecosistema Solana en Latinoamérica.
+        Analiza el potencial de un token social llamado $${tokenSymbol}.
+        Precio Actual: ${currentPrice} SOL.
+        Tendencia 24h: ${trend > 0 ? '+' : ''}${trend}%.
         
-        Provide a short, punchy, futuristic risk assessment (max 3 sentences).
-        Use crypto slang appropriately (WAGMI, Moon, Bearish, Bullish).
+        Dame una evaluación de riesgo futurista, corta y contundente (máximo 3 frases) en ESPAÑOL.
+        Usa jerga crypto latina apropiada (To the moon, HODL, Bearish, Bullish, Gema, Estafa).
         `;
 
         const response = await ai.models.generateContent({
@@ -34,9 +41,9 @@ export const analyzeTokenPotential = async (tokenSymbol: string, currentPrice: n
             contents: prompt,
         });
 
-        return response.text || "Analysis failed to generate.";
+        return response.text || "Falló el análisis de generación.";
     } catch (error) {
         console.error("Gemini analysis error:", error);
-        return "AI Network Congestion. Unable to retrieve live analysis.";
+        return "Congestión en la Red Neuronal. No se pudo obtener el análisis en vivo.";
     }
 };

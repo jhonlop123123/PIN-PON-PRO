@@ -149,9 +149,9 @@ const LandingScreen: React.FC<{ onConnect: () => void; onGuest: () => void; isLo
           
           <h1 className="text-5xl font-bold text-white mb-2 tracking-tight text-center drop-shadow-lg">PinPon</h1>
           <p className="text-slate-300 text-center mb-8 text-sm max-w-[280px] font-medium drop-shadow-md">
-            The <span className="text-[#14F195] font-bold">Anti-Rug</span> Social Economy.
+            La Economía Social <span className="text-[#14F195] font-bold">Anti-Rug</span>.
             <br/>
-            <span className="text-xs opacity-80 text-slate-400">Verified AI Content • Locked Liquidity</span>
+            <span className="text-xs opacity-80 text-slate-400">Contenido IA Verificado • Liquidez Bloqueada</span>
           </p>
 
           <div className="w-full space-y-4">
@@ -162,7 +162,7 @@ const LandingScreen: React.FC<{ onConnect: () => void; onGuest: () => void; isLo
             >
                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                 <Wallet size={24} className="relative z-10" />
-                <span className="relative z-10">{isLoading ? 'Connecting...' : 'Connect Phantom'}</span>
+                <span className="relative z-10">{isLoading ? 'Conectando...' : 'Conectar Phantom'}</span>
                 <ArrowRight size={20} className="relative z-10 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
             </button>
 
@@ -172,14 +172,14 @@ const LandingScreen: React.FC<{ onConnect: () => void; onGuest: () => void; isLo
                 className="group flex items-center justify-center gap-3 bg-black/40 hover:bg-black/60 text-slate-300 font-medium py-4 px-8 rounded-xl transition-all duration-300 w-full border border-white/10 backdrop-blur-md"
             >
                 <Eye size={20} />
-                <span>Explore as Guest</span>
+                <span>Explorar como Invitado</span>
             </button>
           </div>
           
           <div className="mt-12 flex items-center gap-4 opacity-70">
              <div className="h-1 w-1 bg-[#14F195] rounded-full shadow-[0_0_5px_#14F195]"></div>
              <p className="text-[10px] text-slate-400 font-mono uppercase tracking-widest">
-                Security Protocol: Active
+                Protocolo de Seguridad: Activo
              </p>
              <div className="h-1 w-1 bg-[#14F195] rounded-full shadow-[0_0_5px_#14F195]"></div>
           </div>
@@ -259,7 +259,7 @@ const App: React.FC = () => {
     } else {
         // Failed to connect
         setIsConnecting(false);
-        alert("Could not connect to Wallet. Please try again.");
+        alert("No se pudo conectar la Wallet. Inténtalo de nuevo.");
     }
   };
 
@@ -336,7 +336,7 @@ const App: React.FC = () => {
       case ViewState.APP_SETTINGS:
         return <SettingsView onBack={() => setView(ViewState.APP_PROFILE)} onLogout={handleLogout} />;
       default:
-        return <div className="text-white">View Not Found</div>;
+        return <div className="text-white">Vista no encontrada</div>;
     }
   };
 

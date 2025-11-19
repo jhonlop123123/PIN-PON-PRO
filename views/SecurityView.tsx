@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Shield, Lock, CheckCircle, AlertTriangle, Smartphone, Globe, Key, Wallet } from 'lucide-react';
 
@@ -16,14 +17,14 @@ export const SecurityView: React.FC<SecurityViewProps> = ({ isAuthenticated, onC
                 <div className="w-20 h-20 rounded-full bg-slate-800/50 flex items-center justify-center mb-6 border border-slate-700">
                     <Shield className="text-[#14F195]" size={32} />
                 </div>
-                <h2 className="text-2xl font-bold text-white mb-2">Security Dashboard</h2>
-                <p className="text-slate-400 mb-8 text-sm">This area contains sensitive wallet connection status and audit logs. Identity verification required.</p>
+                <h2 className="text-2xl font-bold text-white mb-2">Panel de Seguridad</h2>
+                <p className="text-slate-400 mb-8 text-sm">Esta área contiene registros de auditoría y conexiones sensibles. Se requiere verificación.</p>
                 <button 
                   onClick={onConnectRequest}
                   className="flex items-center gap-2 bg-[#14F195] hover:bg-[#10C278] text-black font-bold py-3 px-8 rounded-full transition-all shadow-[0_0_20px_rgba(20,241,149,0.3)]"
                 >
                     <Wallet size={20} />
-                    Verify Identity
+                    Verificar Identidad
                 </button>
             </div>
         )}
@@ -32,10 +33,10 @@ export const SecurityView: React.FC<SecurityViewProps> = ({ isAuthenticated, onC
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:40px_40px] opacity-10 pointer-events-none"></div>
         
         <div className="flex items-center justify-between mb-8">
-            <h1 className="text-3xl font-bold text-white">Security</h1>
+            <h1 className="text-3xl font-bold text-white">Seguridad</h1>
             <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#14F195]/10 border border-[#14F195]/30">
                 <div className="w-2 h-2 rounded-full bg-[#14F195] animate-pulse"></div>
-                <span className="text-[#14F195] text-xs font-mono font-bold uppercase">System Optimal</span>
+                <span className="text-[#14F195] text-xs font-mono font-bold uppercase">Sistema Óptimo</span>
             </div>
         </div>
 
@@ -63,28 +64,28 @@ export const SecurityView: React.FC<SecurityViewProps> = ({ isAuthenticated, onC
                 </div>
                 <div className="text-white font-mono font-bold text-lg">Phantom</div>
                 <div className="text-[#14F195] text-xs mt-1 flex items-center gap-1">
-                    <CheckCircle size={10} /> Connected
+                    <CheckCircle size={10} /> Conectado
                 </div>
             </div>
             <div className="bg-slate-900/60 border border-slate-800 p-4 rounded-xl backdrop-blur-sm">
                 <div className="flex items-center gap-2 mb-2 text-slate-400">
                     <Globe size={16} />
-                    <span className="text-xs font-bold uppercase">Network</span>
+                    <span className="text-xs font-bold uppercase">Red</span>
                 </div>
                 <div className="text-white font-mono font-bold text-lg">Solana Main</div>
                 <div className="text-[#14F195] text-xs mt-1 flex items-center gap-1">
-                    <CheckCircle size={10} /> Encrypted
+                    <CheckCircle size={10} /> Encriptado
                 </div>
             </div>
         </div>
 
-        <h3 className="text-white font-bold mb-4 text-sm uppercase tracking-wider text-slate-500">Security Audit Log</h3>
+        <h3 className="text-white font-bold mb-4 text-sm uppercase tracking-wider text-slate-500">Registro de Auditoría</h3>
         
         <div className="space-y-4">
             {[
-                { icon: Smartphone, label: 'Biometric Login', time: 'Just now', status: 'success', desc: 'Face ID verified' },
-                { icon: Key, label: 'Wallet Signature', time: '10 mins ago', status: 'success', desc: 'Approved transaction' },
-                { icon: Globe, label: 'IP Address Change', time: '2 hours ago', status: 'warning', desc: 'New location detected' },
+                { icon: Smartphone, label: 'Login Biométrico', time: 'Ahora mismo', status: 'success', desc: 'Face ID verificado' },
+                { icon: Key, label: 'Firma de Wallet', time: 'Hace 10 min', status: 'success', desc: 'Transacción aprobada' },
+                { icon: Globe, label: 'Cambio de IP', time: 'Hace 2 horas', status: 'warning', desc: 'Nueva ubicación detectada' },
             ].map((item, i) => (
                 <div key={i} className="flex items-start gap-4 p-4 rounded-xl bg-slate-900/40 border border-slate-800">
                     <div className={`p-2 rounded-lg ${item.status === 'success' ? 'bg-[#14F195]/10 text-[#14F195]' : 'bg-yellow-500/10 text-yellow-500'}`}>
@@ -104,8 +105,8 @@ export const SecurityView: React.FC<SecurityViewProps> = ({ isAuthenticated, onC
         <div className="mt-8 p-4 rounded-xl bg-[#9945FF]/10 border border-[#9945FF]/30 flex items-center gap-4">
             <AlertTriangle className="text-[#9945FF]" size={24} />
             <div>
-                <h4 className="text-white font-bold text-sm">Advanced Protection</h4>
-                <p className="text-[#9945FF] text-xs">Zero-Knowledge Proofs enabled for maximum privacy.</p>
+                <h4 className="text-white font-bold text-sm">Protección Avanzada</h4>
+                <p className="text-[#9945FF] text-xs">Zero-Knowledge Proofs habilitadas para máxima privacidad.</p>
             </div>
         </div>
     </div>

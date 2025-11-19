@@ -40,7 +40,7 @@ export const InvestView: React.FC<InvestViewProps> = ({ videos, marketData, isAu
           setSwapAmount('');
           setTimeout(() => setSwapSuccess(false), 3000);
       } else {
-          alert("Insufficient SOL balance!");
+          alert("Saldo insuficiente de SOL!");
       }
   };
 
@@ -53,22 +53,22 @@ export const InvestView: React.FC<InvestViewProps> = ({ videos, marketData, isAu
               <div className="w-20 h-20 rounded-full bg-slate-800/50 flex items-center justify-center mb-6 border border-slate-700">
                   <Lock className="text-[#9945FF]" size={32} />
               </div>
-              <h2 className="text-2xl font-bold text-white mb-2">Market Access Locked</h2>
-              <p className="text-slate-400 mb-8 text-sm">Connect your wallet to view real-time token data and access Gemini AI investment analysis.</p>
+              <h2 className="text-2xl font-bold text-white mb-2">Mercado Bloqueado</h2>
+              <p className="text-slate-400 mb-8 text-sm">Conecta tu wallet para ver datos en tiempo real y análisis de inversión con Gemini AI.</p>
               <button 
                 onClick={onConnectRequest}
                 className="flex items-center gap-2 bg-[#14F195] hover:bg-[#10C278] text-black font-bold py-3 px-8 rounded-full transition-all shadow-[0_0_20px_rgba(20,241,149,0.3)]"
               >
                   <Wallet size={20} />
-                  Connect Wallet
+                  Conectar Wallet
               </button>
           </div>
       )}
 
       <div className="flex justify-between items-start mb-6">
         <div>
-             <h1 className="text-3xl font-bold text-white mb-1">Invest</h1>
-             <p className="text-slate-400 text-sm">Solana Video Markets</p>
+             <h1 className="text-3xl font-bold text-white mb-1">Inversión</h1>
+             <p className="text-slate-400 text-sm">Mercados de Video Solana</p>
         </div>
         <div className="flex flex-col items-end">
              <div className="flex items-center gap-2 bg-slate-900 px-3 py-1 rounded-full border border-slate-700">
@@ -87,9 +87,9 @@ export const InvestView: React.FC<InvestViewProps> = ({ videos, marketData, isAu
           <div className="flex items-center justify-between mb-4">
               <h3 className="text-white font-bold flex items-center gap-2">
                   <ArrowRightLeft size={18} className="text-[#14F195]" />
-                  Get $PINPON
+                  Obtener $PINPON
               </h3>
-              <span className="text-[10px] uppercase text-slate-400 tracking-widest border border-slate-700 px-2 py-0.5 rounded">Official Token</span>
+              <span className="text-[10px] uppercase text-slate-400 tracking-widest border border-slate-700 px-2 py-0.5 rounded">Token Oficial</span>
           </div>
 
           <div className="flex items-center gap-2 bg-black/40 p-3 rounded-xl border border-white/10 mb-2">
@@ -121,11 +121,11 @@ export const InvestView: React.FC<InvestViewProps> = ({ videos, marketData, isAu
              disabled={!swapAmount}
              className="w-full py-3 bg-[#14F195] hover:bg-[#10C278] text-black font-bold rounded-xl transition-all shadow-[0_0_15px_rgba(20,241,149,0.3)] disabled:opacity-50 disabled:cursor-not-allowed"
           >
-              {swapSuccess ? 'Purchase Successful!' : 'Swap SOL to PINPON'}
+              {swapSuccess ? '¡Compra Exitosa!' : 'Cambiar SOL por PINPON'}
           </button>
           
           <div className="mt-2 text-center text-[10px] text-slate-500">
-              Rate: 1 SOL = 1,000 $PINPON • Slippage: Auto
+              Tasa: 1 SOL = 1,000 $PINPON • Slippage: Auto
           </div>
       </div>
 
@@ -140,7 +140,7 @@ export const InvestView: React.FC<InvestViewProps> = ({ videos, marketData, isAu
                 </div>
                 <div>
                     <h2 className="text-white font-bold">${selectedToken.tokenSymbol}</h2>
-                    <span className="text-xs text-slate-400">Video Token</span>
+                    <span className="text-xs text-slate-400">Token de Video</span>
                 </div>
             </div>
             <div className={`text-right ${selectedToken.priceChange24h >= 0 ? 'text-[#14F195]' : 'text-red-500'}`}>
@@ -175,7 +175,7 @@ export const InvestView: React.FC<InvestViewProps> = ({ videos, marketData, isAu
          </div>
          
          <div className="mt-4 grid grid-cols-3 gap-2">
-            {['1H', '1D', '1W', '1M', '1Y', 'ALL'].map((tf, i) => (
+            {['1H', '1D', '1S', '1M', '1A', 'TODOS'].map((tf, i) => (
                 <button key={tf} className={`py-1 text-xs rounded border transition-colors ${i === 1 ? 'bg-[#14F195] text-black border-[#14F195] font-bold' : 'bg-transparent text-slate-500 border-slate-800 hover:border-slate-600'}`}>
                     {tf}
                 </button>
@@ -188,10 +188,10 @@ export const InvestView: React.FC<InvestViewProps> = ({ videos, marketData, isAu
            <div className="flex items-center justify-between mb-4">
                <h3 className="text-white font-bold flex items-center gap-2">
                    <ShieldCheck size={18} className="text-[#14F195]" />
-                   Contract Safety
+                   Seguridad del Contrato
                </h3>
                <div className={`text-xs font-bold px-2 py-1 rounded border ${selectedToken.safetyScore > 90 ? 'bg-[#14F195]/10 border-[#14F195] text-[#14F195]' : 'bg-red-500/10 border-red-500 text-red-500'}`}>
-                   SCORE: {selectedToken.safetyScore}/100
+                   PUNTAJE: {selectedToken.safetyScore}/100
                </div>
            </div>
            
@@ -200,10 +200,10 @@ export const InvestView: React.FC<InvestViewProps> = ({ videos, marketData, isAu
                <div className={`p-3 rounded-xl border ${selectedToken.liquidityLocked ? 'bg-slate-900 border-slate-700' : 'bg-red-900/20 border-red-500/50'}`}>
                    <div className="flex items-center gap-2 mb-1">
                        <Lock size={14} className={selectedToken.liquidityLocked ? 'text-[#14F195]' : 'text-red-500'} />
-                       <span className="text-xs text-slate-400 uppercase font-bold">Liquidity</span>
+                       <span className="text-xs text-slate-400 uppercase font-bold">Liquidez</span>
                    </div>
                    <div className="text-sm text-white font-bold">
-                       {selectedToken.liquidityLocked ? 'LOCKED' : 'UNLOCKED'}
+                       {selectedToken.liquidityLocked ? 'BLOQUEADA' : 'LIBRE'}
                    </div>
                </div>
 
@@ -211,17 +211,17 @@ export const InvestView: React.FC<InvestViewProps> = ({ videos, marketData, isAu
                <div className={`p-3 rounded-xl border ${selectedToken.mintAuthority === 'RENOUNCED' ? 'bg-slate-900 border-slate-700' : 'bg-red-900/20 border-red-500/50'}`}>
                    <div className="flex items-center gap-2 mb-1">
                        <FileCode size={14} className={selectedToken.mintAuthority === 'RENOUNCED' ? 'text-[#14F195]' : 'text-red-500'} />
-                       <span className="text-xs text-slate-400 uppercase font-bold">Mint Auth</span>
+                       <span className="text-xs text-slate-400 uppercase font-bold">Autoridad Mint</span>
                    </div>
                    <div className="text-sm text-white font-bold">
-                       {selectedToken.mintAuthority}
+                       {selectedToken.mintAuthority === 'RENOUNCED' ? 'RENUNCIADA' : 'ACTIVA'}
                    </div>
                </div>
            </div>
            
            <div className="mt-4 pt-4 border-t border-slate-800 flex items-center gap-3 text-xs text-slate-400">
                <AlertOctagon size={14} />
-               <span>Creator Bond: <span className="text-white font-mono">{selectedToken.creatorBond} SOL</span> locked against fraud.</span>
+               <span>Garantía: <span className="text-white font-mono">{selectedToken.creatorBond} SOL</span> bloqueados contra fraude.</span>
            </div>
       </div>
 
@@ -229,14 +229,14 @@ export const InvestView: React.FC<InvestViewProps> = ({ videos, marketData, isAu
       <div className="w-full bg-gradient-to-br from-indigo-950/50 to-slate-900/50 border border-indigo-500/30 rounded-2xl p-5 mb-6 relative overflow-hidden">
             <div className="flex items-center gap-2 mb-3 text-indigo-300">
                 <Sparkles size={16} />
-                <span className="text-xs font-bold tracking-widest uppercase">Gemini AI Analyst</span>
+                <span className="text-xs font-bold tracking-widest uppercase">Analista Gemini AI</span>
             </div>
             
             <div className="min-h-[60px]">
                 {analyzing ? (
                      <div className="flex items-center gap-2 text-indigo-400 text-sm animate-pulse">
                         <Activity size={16} className="animate-spin" />
-                        Scanning blockchain metrics...
+                        Escaneando métricas de la blockchain...
                      </div>
                 ) : aiAnalysis ? (
                     <p className="text-sm text-slate-200 leading-relaxed border-l-2 border-indigo-500 pl-3">
@@ -244,7 +244,7 @@ export const InvestView: React.FC<InvestViewProps> = ({ videos, marketData, isAu
                     </p>
                 ) : (
                     <p className="text-sm text-slate-500">
-                        Unlock AI-powered risk assessment for ${selectedToken.tokenSymbol} before you ape in.
+                        Desbloquea el análisis de riesgo por IA para ${selectedToken.tokenSymbol} antes de invertir.
                     </p>
                 )}
             </div>
@@ -255,13 +255,13 @@ export const InvestView: React.FC<InvestViewProps> = ({ videos, marketData, isAu
                     disabled={!isAuthenticated}
                     className="mt-4 w-full py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-bold text-sm transition-all shadow-[0_0_15px_rgba(99,102,241,0.4)] disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                    Generate Report
+                    Generar Reporte
                 </button>
             )}
       </div>
 
       {/* Trending Tokens List */}
-      <h3 className="text-white font-bold mb-4 text-lg">Trending Challenges</h3>
+      <h3 className="text-white font-bold mb-4 text-lg">Tendencias (Desafíos)</h3>
       <div className="space-y-3">
         {videos.map((video) => (
             <div 

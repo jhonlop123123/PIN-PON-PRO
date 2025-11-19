@@ -36,9 +36,9 @@ const LiveTicker = () => {
     const [trade, setTrade] = useState<{text: string, type: 'buy' | 'sell'} | null>(null);
 
     useEffect(() => {
-        const names = ['8x...9f', 'Sol...Whale', 'Degenerate', 'CryptoKing', 'Ape...22'];
-        const actions = ['bought', 'aped into', 'accumulated'];
-        const tokens = ['$NEON', '$BRAIN', '$MECH'];
+        const names = ['Juan.Sol', 'Sofia_NFT', 'CarlosX', 'CryptoKing', 'Ape...22', 'Maria_Dev'];
+        const actions = ['compró', 'invirtió en', 'acumuló', 'apósto por'];
+        const tokens = ['$NEON', '$BRAIN', '$MECH', '$ASTRO'];
 
         const interval = setInterval(() => {
             const name = names[Math.floor(Math.random() * names.length)];
@@ -136,7 +136,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ video, isAuthenticated, onConnect
               <div className="absolute inset-0 z-30 pointer-events-none bg-black/20 flex flex-col items-center justify-center">
                    <div className="w-full h-1 bg-[#14F195]/50 absolute top-0 animate-[scanVertical_1.5s_ease-in-out_infinite]"></div>
                    <div className="font-mono text-[10px] text-[#14F195] bg-black/50 px-2 py-1 rounded border border-[#14F195]/30">
-                       VERIFYING GENERATION PROOF...
+                       VERIFICANDO PRUEBA DE GENERACIÓN...
                    </div>
               </div>
           )}
@@ -191,7 +191,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ video, isAuthenticated, onConnect
           >
               {video.isVerified ? <ShieldCheck size={14} className="text-[#14F195]" /> : <ShieldAlert size={14} className="text-red-500" />}
               <span className="text-[10px] font-bold text-white tracking-wide">
-                  {video.isVerified ? 'VERIFIED' : 'UNVERIFIED'}
+                  {video.isVerified ? 'VERIFICADO' : 'NO VERIFICADO'}
               </span>
           </button>
 
@@ -199,7 +199,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ video, isAuthenticated, onConnect
           {showSecurity && (
                <div className="absolute top-36 left-4 w-64 bg-slate-900/95 border border-slate-700 rounded-xl p-3 z-40 backdrop-blur-xl shadow-xl animate-in fade-in slide-in-from-left-4 duration-200">
                    <div className="flex justify-between items-center mb-2">
-                        <span className="text-xs font-bold text-white uppercase">Proof of Generation</span>
+                        <span className="text-xs font-bold text-white uppercase">Prueba de Generación</span>
                         <button onClick={(e) => {e.stopPropagation(); setShowSecurity(false);}} className="text-slate-500 hover:text-white">x</button>
                    </div>
                    <div className="space-y-2">
@@ -208,7 +208,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ video, isAuthenticated, onConnect
                                 <ShieldCheck size={12} className="text-[#14F195]" />
                              </div>
                              <div>
-                                <div className="text-[10px] text-slate-400 uppercase">Provider</div>
+                                <div className="text-[10px] text-slate-400 uppercase">Proveedor</div>
                                 <div className="text-xs text-white font-mono">{video.verificationProvider}</div>
                              </div>
                         </div>
@@ -217,9 +217,9 @@ const VideoCard: React.FC<VideoCardProps> = ({ video, isAuthenticated, onConnect
                                 <Banknote size={12} className="text-[#9945FF]" />
                              </div>
                              <div>
-                                <div className="text-[10px] text-slate-400 uppercase">Creator Bond</div>
-                                <div className="text-xs text-white font-mono">{video.creatorBond} SOL (Locked)</div>
-                                <div className="text-[9px] text-green-400 mt-0.5">Slashing enabled for fraud</div>
+                                <div className="text-[10px] text-slate-400 uppercase">Fianza del Creador</div>
+                                <div className="text-xs text-white font-mono">{video.creatorBond} SOL (Bloqueado)</div>
+                                <div className="text-[9px] text-green-400 mt-0.5">Penalización activa x fraude</div>
                              </div>
                         </div>
                    </div>
@@ -233,9 +233,9 @@ const VideoCard: React.FC<VideoCardProps> = ({ video, isAuthenticated, onConnect
                 <div className="flex justify-between items-center mb-3 pb-2 border-b border-white/10">
                     <div className="flex items-center gap-2">
                         <Sparkles size={14} className="text-[#9945FF]" />
-                        <span className="text-xs font-bold text-white uppercase tracking-widest">Gen AI Data</span>
+                        <span className="text-xs font-bold text-white uppercase tracking-widest">Datos Gen AI</span>
                     </div>
-                    <button onClick={(e) => { e.stopPropagation(); setShowPrompt(false); }} className="text-slate-500 hover:text-white text-xs">CLOSE</button>
+                    <button onClick={(e) => { e.stopPropagation(); setShowPrompt(false); }} className="text-slate-500 hover:text-white text-xs">CERRAR</button>
                 </div>
                 
                 <div className="space-y-3">
@@ -247,11 +247,11 @@ const VideoCard: React.FC<VideoCardProps> = ({ video, isAuthenticated, onConnect
                     </div>
                     <div className="flex gap-4">
                         <div className="flex-1">
-                            <label className="text-[10px] text-slate-500 font-mono uppercase block mb-1">Model</label>
+                            <label className="text-[10px] text-slate-500 font-mono uppercase block mb-1">Modelo</label>
                             <div className="text-xs text-white font-mono bg-slate-900/50 p-1 px-2 rounded border border-slate-800">{video.aiModel}</div>
                         </div>
                         <div className="flex-1">
-                            <label className="text-[10px] text-slate-500 font-mono uppercase block mb-1">Seed</label>
+                            <label className="text-[10px] text-slate-500 font-mono uppercase block mb-1">Semilla</label>
                             <div className="text-xs text-white font-mono bg-slate-900/50 p-1 px-2 rounded border border-slate-800">{video.seed}</div>
                         </div>
                     </div>
@@ -261,11 +261,11 @@ const VideoCard: React.FC<VideoCardProps> = ({ video, isAuthenticated, onConnect
                         className="w-full mt-2 flex items-center justify-center gap-2 bg-[#9945FF]/20 hover:bg-[#9945FF]/40 border border-[#9945FF]/50 text-[#9945FF] py-2 rounded-lg transition-colors"
                     >
                         {remixing ? (
-                            <span className="text-xs font-bold animate-pulse">COPIED TO CLIPBOARD</span>
+                            <span className="text-xs font-bold animate-pulse">¡COPIADO AL PORTAPAPELES!</span>
                         ) : (
                             <>
                                 <Copy size={14} />
-                                <span className="text-xs font-bold">REMIX THIS PROMPT</span>
+                                <span className="text-xs font-bold">REMEZCLAR PROMPT</span>
                             </>
                         )}
                     </button>
@@ -285,7 +285,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ video, isAuthenticated, onConnect
                            {video.priceChange24h > 0 ? '+' : ''}{video.priceChange24h}%
                         </span>
                         <span className="px-2 py-1 bg-blue-500/20 border border-blue-500/50 rounded text-[10px] text-blue-400 font-mono font-bold uppercase tracking-wider backdrop-blur-md flex items-center gap-1">
-                            <Sparkles size={8} /> AI GEN
+                            <Sparkles size={8} /> IA GEN
                         </span>
                     </div>
                     
@@ -309,12 +309,12 @@ const VideoCard: React.FC<VideoCardProps> = ({ video, isAuthenticated, onConnect
                         {isAuthenticated ? (
                             <>
                                 <Zap size={18} fill="black" />
-                                <span>Invest {video.currentPrice} SOL</span>
+                                <span>Invertir {video.currentPrice} SOL</span>
                             </>
                         ) : (
                             <>
                                 <Lock size={16} />
-                                <span>Connect to Invest</span>
+                                <span>Conectar para Invertir</span>
                             </>
                         )}
                     </button>
@@ -349,9 +349,9 @@ const VideoCard: React.FC<VideoCardProps> = ({ video, isAuthenticated, onConnect
           {/* Top Header */}
           <div className="absolute top-0 left-0 w-full p-4 pt-6 flex justify-center z-20 bg-gradient-to-b from-black/80 to-transparent pointer-events-none">
                 <div className="flex gap-6 text-sm font-bold text-white/50 pointer-events-auto">
-                    <span className="hover:text-white cursor-pointer transition-colors">Following</span>
+                    <span className="hover:text-white cursor-pointer transition-colors">Siguiendo</span>
                     <span className="text-white relative cursor-pointer">
-                        For You
+                        Para Ti
                         <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-[#14F195] rounded-full shadow-[0_0_5px_#14F195]"></div>
                     </span>
                 </div>

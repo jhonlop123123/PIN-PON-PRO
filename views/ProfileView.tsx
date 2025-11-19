@@ -20,21 +20,21 @@ export const ProfileView: React.FC<ProfileViewProps> = ({ isAuthenticated, onCon
                 <div className="w-20 h-20 rounded-full bg-slate-800/50 flex items-center justify-center mb-6 border border-slate-700">
                     <UserX className="text-white" size={32} />
                 </div>
-                <h2 className="text-2xl font-bold text-white mb-2">Profile Locked</h2>
-                <p className="text-slate-400 mb-8 text-sm">Connect your Solana wallet to view your holdings, rank, and video portfolio.</p>
+                <h2 className="text-2xl font-bold text-white mb-2">Perfil Bloqueado</h2>
+                <p className="text-slate-400 mb-8 text-sm">Conecta tu wallet de Solana para ver tus fondos, rango y portafolio de videos.</p>
                 <button 
                   onClick={onConnectRequest}
                   className="flex items-center gap-2 bg-[#9945FF] hover:bg-[#8a3ce0] text-white font-bold py-3 px-8 rounded-full transition-all shadow-[0_0_20px_rgba(153,69,255,0.3)]"
                 >
                     <Wallet size={20} />
-                    Connect Wallet
+                    Conectar Wallet
                 </button>
             </div>
         )}
 
          {/* Header */}
          <div className="flex justify-between items-center mb-8">
-            <h1 className="text-3xl font-bold text-white">Profile</h1>
+            <h1 className="text-3xl font-bold text-white">Perfil</h1>
             <button 
                 onClick={onSettingsClick}
                 className="p-2 rounded-full hover:bg-slate-800 transition-colors text-slate-400 hover:text-white"
@@ -67,7 +67,7 @@ export const ProfileView: React.FC<ProfileViewProps> = ({ isAuthenticated, onCon
             
             <div className="flex justify-between items-start mb-6">
                 <div>
-                    <p className="text-purple-200 text-xs font-medium uppercase tracking-wider">Total Balance</p>
+                    <p className="text-purple-200 text-xs font-medium uppercase tracking-wider">Balance Total</p>
                     <h3 className="text-3xl font-bold text-white mt-1">
                         ${(wallet.solBalance * 145).toLocaleString('en-US', {maximumFractionDigits: 2})}
                     </h3>
@@ -98,8 +98,8 @@ export const ProfileView: React.FC<ProfileViewProps> = ({ isAuthenticated, onCon
                      <Coins className="text-black" size={24} />
                  </div>
                  <div>
-                     <h4 className="text-white font-bold">$PINPON Holdings</h4>
-                     <p className="text-xs text-[#14F195]">Official App Token</p>
+                     <h4 className="text-white font-bold">Activos $PINPON</h4>
+                     <p className="text-xs text-[#14F195]">Token Oficial</p>
                  </div>
              </div>
              <div className="text-right">
@@ -111,9 +111,9 @@ export const ProfileView: React.FC<ProfileViewProps> = ({ isAuthenticated, onCon
          {/* Stats Grid */}
          <div className="grid grid-cols-3 gap-4 mb-8">
             {[
-                { label: 'Challenges', val: '12' },
-                { label: 'Invested', val: '45 SOL' },
-                { label: 'Rank', val: '#1' },
+                { label: 'Desafíos', val: '12' },
+                { label: 'Invertido', val: '45 SOL' },
+                { label: 'Rango', val: '#1' },
             ].map((stat, i) => (
                 <div key={i} className="bg-slate-900 border border-slate-800 rounded-xl p-4 flex flex-col items-center">
                     <span className="text-white font-bold text-lg">{stat.val}</span>
