@@ -6,6 +6,7 @@ export enum ViewState {
   APP_INVEST = 'APP_INVEST',
   APP_SECURITY = 'APP_SECURITY',
   APP_PROFILE = 'APP_PROFILE',
+  APP_SETTINGS = 'APP_SETTINGS', // Added
 }
 
 export interface VideoChallenge {

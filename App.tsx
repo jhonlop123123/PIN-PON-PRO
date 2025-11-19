@@ -7,6 +7,7 @@ import { FeedView } from './views/FeedView';
 import { InvestView } from './views/InvestView';
 import { SecurityView } from './views/SecurityView';
 import { ProfileView } from './views/ProfileView';
+import { SettingsView } from './views/SettingsView';
 import { Wallet, ArrowRight, Eye, Bot, Zap, ShieldCheck } from 'lucide-react';
 import { connectWallet, getWalletBalance } from './services/solanaService';
 
@@ -293,6 +294,18 @@ const App: React.FC = () => {
       return false;
   };
 
+  // 6. Logout Logic
+  const handleLogout = () => {
+      setWallet({
+          address: '',
+          solBalance: 0,
+          pinPonBalance: 0,
+          isConnected: false
+      });
+      setIsAuthenticated(false);
+      setView(ViewState.LANDING);
+  };
+
   // View Rendering Logic
   const renderContent = () => {
     switch (view) {
@@ -314,13 +327,21 @@ const App: React.FC = () => {
       case ViewState.APP_SECURITY:
         return <SecurityView isAuthenticated={isAuthenticated} onConnectRequest={triggerAuth} />;
       case ViewState.APP_PROFILE:
-        return <ProfileView isAuthenticated={isAuthenticated} onConnectRequest={triggerAuth} wallet={wallet} />;
+        return <ProfileView 
+            isAuthenticated={isAuthenticated} 
+            onConnectRequest={triggerAuth} 
+            wallet={wallet} 
+            onSettingsClick={() => setView(ViewState.APP_SETTINGS)}
+        />;
+      case ViewState.APP_SETTINGS:
+        return <SettingsView onBack={() => setView(ViewState.APP_PROFILE)} onLogout={handleLogout} />;
       default:
         return <div className="text-white">View Not Found</div>;
     }
   };
 
-  const showNav = view !== ViewState.LANDING && view !== ViewState.BIOMETRIC;
+  // Hide nav on Landing, Biometric, AND Settings screens (for modal feel)
+  const showNav = view !== ViewState.LANDING && view !== ViewState.BIOMETRIC && view !== ViewState.APP_SETTINGS;
 
   return (
     <div className="w-full h-screen bg-[#020617] text-white overflow-hidden font-sans">

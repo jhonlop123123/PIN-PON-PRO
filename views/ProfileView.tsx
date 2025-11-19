@@ -7,9 +7,10 @@ interface ProfileViewProps {
     isAuthenticated: boolean;
     onConnectRequest: () => void;
     wallet: UserWallet;
+    onSettingsClick: () => void; // New prop
 }
 
-export const ProfileView: React.FC<ProfileViewProps> = ({ isAuthenticated, onConnectRequest, wallet }) => {
+export const ProfileView: React.FC<ProfileViewProps> = ({ isAuthenticated, onConnectRequest, wallet, onSettingsClick }) => {
   return (
     <div className="h-full w-full bg-[#020617] p-6 pt-12 pb-24 overflow-y-auto no-scrollbar relative">
         
@@ -34,7 +35,10 @@ export const ProfileView: React.FC<ProfileViewProps> = ({ isAuthenticated, onCon
          {/* Header */}
          <div className="flex justify-between items-center mb-8">
             <h1 className="text-3xl font-bold text-white">Profile</h1>
-            <button className="p-2 rounded-full hover:bg-slate-800 transition-colors text-slate-400">
+            <button 
+                onClick={onSettingsClick}
+                className="p-2 rounded-full hover:bg-slate-800 transition-colors text-slate-400 hover:text-white"
+            >
                 <Settings size={24} />
             </button>
          </div>
