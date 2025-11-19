@@ -1,4 +1,3 @@
-
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
@@ -17,8 +16,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      // Polyfill buffer if needed by web3.js, though usually handled by the browser via Vite's internals or explicit polyfill packages
-      // For simple implementations, letting Vite handle module resolution is safest.
+      // Polyfill buffer if needed by web3.js
     }
   }
 });
