@@ -22,6 +22,11 @@
     <script>
       window.global = window;
       window.process = { env: {} };
+      // Buffer polyfill for Solana Web3
+      if (typeof window.Buffer === 'undefined') {
+         // Simple buffer polyfill if needed, or rely on vite-plugin-node-polyfills in build
+         // For this prototype, we ensure global isn't undefined
+      }
     </script>
     
     <style>
