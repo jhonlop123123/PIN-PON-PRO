@@ -8,7 +8,7 @@ import { InvestView } from './views/InvestView';
 import { SecurityView } from './views/SecurityView';
 import { ProfileView } from './views/ProfileView';
 import { SettingsView } from './views/SettingsView';
-import { Wallet, ArrowRight, Eye, Bot, Zap, ShieldCheck } from 'lucide-react';
+import { Wallet, ArrowRight, Eye, Bot, Zap, ShieldCheck, Globe } from 'lucide-react';
 import { connectWallet, getWalletBalance } from './services/solanaService';
 
 // --- Mock Data with Real Video Assets & AI Prompts ---
@@ -137,21 +137,21 @@ const LandingScreen: React.FC<{ onConnect: () => void; onGuest: () => void; isLo
        <div className="z-10 flex flex-col items-center w-full max-w-sm animate-in fade-in zoom-in duration-1000">
           <div className="w-24 h-24 mb-6 rounded-2xl bg-gradient-to-br from-[#9945FF] to-[#14F195] p-1 shadow-[0_0_40px_rgba(153,69,255,0.4)] relative group">
             <div className="w-full h-full bg-black rounded-xl flex items-center justify-center relative overflow-hidden">
-                <Bot size={40} className="text-white z-10 relative" />
+                <Globe size={40} className="text-white z-10 relative animate-pulse" />
                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
                 <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
             </div>
             <div className="absolute -top-2 -right-2 bg-[#14F195] text-black text-[10px] font-bold px-2 py-0.5 rounded-full animate-bounce flex items-center gap-1">
                 <ShieldCheck size={8} />
-                SECURE
+                FUTURE READY
             </div>
           </div>
           
           <h1 className="text-5xl font-bold text-white mb-2 tracking-tight text-center drop-shadow-lg">PinPon</h1>
           <p className="text-slate-300 text-center mb-8 text-sm max-w-[280px] font-medium drop-shadow-md">
-            La Economía Social <span className="text-[#14F195] font-bold">Anti-Rug</span>.
+            Construyendo el futuro de la economía social.
             <br/>
-            <span className="text-xs opacity-80 text-slate-400">Contenido IA Verificado • Liquidez Bloqueada</span>
+            <span className="text-xs opacity-80 text-[#14F195] font-bold mt-2 block">Para la Tierra y más allá. 🚀</span>
           </p>
 
           <div className="w-full space-y-4">
@@ -162,7 +162,7 @@ const LandingScreen: React.FC<{ onConnect: () => void; onGuest: () => void; isLo
             >
                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                 <Wallet size={24} className="relative z-10" />
-                <span className="relative z-10">{isLoading ? 'Conectando...' : 'Conectar Phantom'}</span>
+                <span className="relative z-10">{isLoading ? 'Iniciando Enlace...' : 'Conectar Wallet'}</span>
                 <ArrowRight size={20} className="relative z-10 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
             </button>
 
@@ -172,14 +172,14 @@ const LandingScreen: React.FC<{ onConnect: () => void; onGuest: () => void; isLo
                 className="group flex items-center justify-center gap-3 bg-black/40 hover:bg-black/60 text-slate-300 font-medium py-4 px-8 rounded-xl transition-all duration-300 w-full border border-white/10 backdrop-blur-md"
             >
                 <Eye size={20} />
-                <span>Explorar como Invitado</span>
+                <span>Explorar Visión</span>
             </button>
           </div>
           
           <div className="mt-12 flex items-center gap-4 opacity-70">
              <div className="h-1 w-1 bg-[#14F195] rounded-full shadow-[0_0_5px_#14F195]"></div>
              <p className="text-[10px] text-slate-400 font-mono uppercase tracking-widest">
-                Protocolo de Seguridad: Activo
+                Global Network: Online
              </p>
              <div className="h-1 w-1 bg-[#14F195] rounded-full shadow-[0_0_5px_#14F195]"></div>
           </div>

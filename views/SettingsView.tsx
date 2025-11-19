@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { ArrowLeft, Shield, Bell, Eye, Globe, LogOut, Smartphone, ChevronRight, Lock, EyeOff, Share2, Copy } from 'lucide-react';
+import { ArrowLeft, Shield, Bell, Eye, Globe, LogOut, Smartphone, ChevronRight, Lock, EyeOff, Share2, Copy, Rocket } from 'lucide-react';
 
 interface SettingsViewProps {
     onBack: () => void;
@@ -14,8 +14,8 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ onBack, onLogout }) 
     const [copied, setCopied] = useState(false);
 
     const handleShare = () => {
-        // This copies the current URL (which will be the Vercel URL when deployed)
-        navigator.clipboard.writeText(window.location.href);
+        const shareText = `🚀 Estoy construyendo el futuro con PinPon.\n\n"Un futuro mejor para cada humano, animal, insecto y planta."\n\nMira el prototipo aquí: ${window.location.href}`;
+        navigator.clipboard.writeText(shareText);
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
     };
@@ -32,19 +32,38 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ onBack, onLogout }) 
 
             <div className="flex-1 overflow-y-auto p-6 space-y-8 pb-24 no-scrollbar">
                 
-                {/* Growth Section - NEW */}
-                <div className="bg-gradient-to-r from-[#9945FF]/20 to-[#14F195]/10 rounded-2xl p-1 shadow-lg">
-                    <div className="bg-slate-900/90 rounded-xl p-4 text-center">
-                        <h3 className="text-white font-bold mb-2">Share Prototype</h3>
-                        <p className="text-slate-400 text-xs mb-4">Send this app to potential investors or partners.</p>
-                        <button 
-                            onClick={handleShare}
-                            className="w-full py-3 bg-white text-black font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-slate-200 transition-colors"
-                        >
-                            {copied ? <Copy size={18} /> : <Share2 size={18} />}
-                            {copied ? 'Link Copied!' : 'Copy App Link'}
-                        </button>
+                {/* VISION Section - NEW */}
+                <div className="bg-gradient-to-br from-[#14F195]/20 to-slate-900 rounded-2xl p-1 shadow-lg border border-[#14F195]/30">
+                    <div className="bg-slate-900/90 rounded-xl p-5 relative overflow-hidden">
+                        <div className="absolute top-0 right-0 -mr-4 -mt-4 text-[#14F195] opacity-10">
+                            <Rocket size={100} />
+                        </div>
+                        <div className="relative z-10">
+                            <h3 className="text-[#14F195] font-bold mb-2 flex items-center gap-2">
+                                <Rocket size={16} />
+                                LA MISIÓN
+                            </h3>
+                            <p className="text-white font-mono text-sm italic leading-relaxed">
+                                "Un futuro mejor para cada humano, animal, insecto y planta. Sobrevivir y expandirnos."
+                            </p>
+                            <div className="mt-4 pt-4 border-t border-white/10 flex justify-between items-center">
+                                <span className="text-[10px] text-slate-500 uppercase tracking-widest">Founder's Vision</span>
+                                <span className="text-[10px] text-[#14F195] font-bold">PHASE 1: EARTH</span>
+                            </div>
+                        </div>
                     </div>
+                </div>
+
+                {/* Share Section */}
+                <div className="bg-slate-900 rounded-xl p-4 border border-slate-800">
+                    <h3 className="text-white font-bold mb-2 text-sm">Comparte el Legado</h3>
+                    <button 
+                        onClick={handleShare}
+                        className="w-full py-3 bg-white text-black font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-slate-200 transition-colors"
+                    >
+                        {copied ? <Copy size={18} /> : <Share2 size={18} />}
+                        {copied ? '¡Mensaje Copiado!' : 'Copiar Enlace y Misión'}
+                    </button>
                 </div>
 
                 {/* Security Section */}
@@ -129,7 +148,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ onBack, onLogout }) 
                 <div className="text-center pt-4 pb-8">
                     <div className="inline-flex items-center gap-2 bg-slate-900 px-3 py-1 rounded-full border border-slate-800">
                         <div className="w-1.5 h-1.5 bg-[#14F195] rounded-full animate-pulse"></div>
-                        <span className="text-slate-500 text-[10px] font-mono">PinPon v1.2.4 (Build 8920)</span>
+                        <span className="text-slate-500 text-[10px] font-mono">PinPon v1.3 (Project Genesis)</span>
                     </div>
                 </div>
             </div>

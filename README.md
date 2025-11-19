@@ -2,8 +2,10 @@
 # PinPon - Solana SocialFi Video App
 ### Architected by Jonathan L.
 
-## 🚀 Visión del Proyecto
-PinPon es una aplicación social futurista y segura basada en Blockchain, diseñada para desafíos de video tokenizados en la red Solana. Combina el "engagement" viral de los videos cortos (estilo TikTok) con los incentivos financieros de SocialFi y la seguridad de una billetera cripto.
+## 🚀 La Misión
+**"Un futuro mejor para cada humano, animal, insecto y planta. Sobrevivir y expandirnos."**
+
+PinPon no es solo una app social. Es el motor económico para financiar el futuro. Usamos la velocidad de Solana para crear riqueza distribuida, donde creadores y visionarios pueden fondear sus sueños sin intermediarios.
 
 ## 🛠 Tecnología (Tech Stack)
 Este prototipo está construido con tecnología moderna lista para convertirse en App Nativa (vía Capacitor).
@@ -36,11 +38,12 @@ No guardes este código en tu laptop. Súbelo a Vercel para mostrárselo a inver
 *Copia y pega esto en los canales de "Busco Equipo" o "Proyectos":*
 
 > "Hola builders 🏗️. Soy Diseñador y Fundador.
-> Estoy construyendo **PinPon**, una app de 'SocialFi' en Solana (tipo TikTok pero con tokenización de videos).
+> Estoy construyendo **PinPon**, una app de 'SocialFi' en Solana.
 >
-> 📱 **Tengo el MVP visual listo:** [Pega tu enlace de Vercel aquí]
+> 🌍 **Nuestra Misión:** Financiar un futuro mejor para todos (humanos y naturaleza) a través de economía descentralizada.
+> 📱 **MVP visual listo:** [Pega tu enlace de Vercel aquí]
 >
-> Busco un **Dev de Smart Contracts (Rust)** o **React Native** que quiera unirse para aplicar al próximo Hackathon de Solana. Yo pongo el diseño, producto y estrategia. ¿Alguien interesado en ver el código?"
+> Busco un **Dev de Smart Contracts (Rust)** o **React Native** que quiera unirse para aplicar al próximo Hackathon de Solana. Yo pongo el diseño, producto y visión. ¿Alguien interesado en cambiar el juego?"
 
 ## 📂 Estructura del Proyecto
 
