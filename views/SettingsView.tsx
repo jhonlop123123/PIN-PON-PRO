@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { ArrowLeft, Shield, Bell, Eye, Globe, LogOut, Smartphone, ChevronRight, Lock, EyeOff } from 'lucide-react';
+import { ArrowLeft, Shield, Bell, Eye, Globe, LogOut, Smartphone, ChevronRight, Lock, EyeOff, Share2, Copy } from 'lucide-react';
 
 interface SettingsViewProps {
     onBack: () => void;
@@ -11,7 +11,14 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ onBack, onLogout }) 
     const [notifications, setNotifications] = useState(true);
     const [biometrics, setBiometrics] = useState(true);
     const [hideBalance, setHideBalance] = useState(false);
-    const [securityLevel, setSecurityLevel] = useState('High');
+    const [copied, setCopied] = useState(false);
+
+    const handleShare = () => {
+        // This copies the current URL (which will be the Vercel URL when deployed)
+        navigator.clipboard.writeText(window.location.href);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+    };
 
     return (
         <div className="h-full w-full bg-[#020617] flex flex-col relative animate-in slide-in-from-right duration-300">
@@ -25,6 +32,21 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ onBack, onLogout }) 
 
             <div className="flex-1 overflow-y-auto p-6 space-y-8 pb-24 no-scrollbar">
                 
+                {/* Growth Section - NEW */}
+                <div className="bg-gradient-to-r from-[#9945FF]/20 to-[#14F195]/10 rounded-2xl p-1 shadow-lg">
+                    <div className="bg-slate-900/90 rounded-xl p-4 text-center">
+                        <h3 className="text-white font-bold mb-2">Share Prototype</h3>
+                        <p className="text-slate-400 text-xs mb-4">Send this app to potential investors or partners.</p>
+                        <button 
+                            onClick={handleShare}
+                            className="w-full py-3 bg-white text-black font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-slate-200 transition-colors"
+                        >
+                            {copied ? <Copy size={18} /> : <Share2 size={18} />}
+                            {copied ? 'Link Copied!' : 'Copy App Link'}
+                        </button>
+                    </div>
+                </div>
+
                 {/* Security Section */}
                 <section>
                     <h3 className="text-[#14F195] text-xs font-bold uppercase tracking-widest mb-4 px-1 flex items-center gap-2">

@@ -16,6 +16,25 @@ This prototype is built using a modern frontend stack ready for conversion to Mo
 - **Icons:** Lucide React
 - **Charts:** Recharts
 
+## ⚡ QUICK START: HOW TO DEPLOY (Get it Online)
+
+**Step 1: Get a Live URL (Free)**
+Don't keep this code on your laptop. Deploy it to Vercel to show investors/partners.
+1. Create an account at [Vercel.com](https://vercel.com).
+2. Install CLI: `npm i -g vercel`
+3. Run command: `vercel`
+4. Share the generated URL (e.g., `https://pinpon.vercel.app`).
+
+**Step 2: Find a Co-Founder (Technical Partner)**
+If you don't have budget, find a partner who codes for equity.
+- **Y Combinator Co-Founder Match:** [ycombinator.com/cofounder-matching](https://www.ycombinator.com/cofounder-matching)
+- Create a profile -> Select "I am a Designer/Product person" -> Look for "Solana/React Engineer".
+
+**Step 3: Get Funding (Grants)**
+Upload this prototype to crypto-specific platforms.
+- **DoraHacks:** [dorahacks.io](https://dorahacks.io/) (Look for Solana Hackathons).
+- **Solana Colosseum:** [colosseum.org](https://www.colosseum.org/).
+
 ## 📂 Architecture Overview
 
 ### 1. Frontend Layer (Current State)
