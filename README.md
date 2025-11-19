@@ -1,11 +1,67 @@
-<div align="center">
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+# PinPon - Solana SocialFi Video App
+### Architected by Jonathan L.
 
-  <h1>Built with AI Studio</h2>
+## 🚀 Project Vision
+PinPon is a futuristic, secure blockchain-based social application designed for video challenges tokenized on the Solana network. It combines the viral engagement of short-form video (TikTok style) with the financial incentives of SocialFi and the security of a crypto wallet.
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+## 🛠 Tech Stack
+This prototype is built using a modern frontend stack ready for conversion to Mobile Native (via Capacitor/Expo).
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+- **Core:** React 18 + TypeScript
+- **Styling:** Tailwind CSS (Futuristic/Neon aesthetic)
+- **State Management:** React Hooks
+- **Blockchain Integration:** `@solana/web3.js`
+- **AI Integration:** Google Gemini API (for Investment Analysis & Content Verification)
+- **Icons:** Lucide React
+- **Charts:** Recharts
 
-</div>
+## 📂 Architecture Overview
+
+### 1. Frontend Layer (Current State)
+- **`App.tsx`**: Main controller handling Authentication State (Guest vs Wallet) and View Routing.
+- **`views/`**: 
+  - `FeedView`: The core video scrolling experience with custom overlays for "Invest" and "AI Prompts".
+  - `InvestView`: Real-time charting and simulated Swap Interface ($SOL <-> $PINPON).
+  - `SecurityView`: Dashboard showing biometric status and simulated audit logs.
+- **`services/solanaService.ts`**: Logic for connecting to Phantom Wallet and querying the Solana Cluster.
+
+### 2. Planned Backend Layer (Needs Implementation)
+To move this to Production (Mainnet), the following is required:
+- **Smart Contract (Rust/Anchor):** 
+  - Needs a Program to handle the `$PINPON` token minting.
+  - Needs a "Bonding Curve" contract for individual video tokens.
+- **Database (Supabase/Firebase):** To store video URLs and User Profiles off-chain.
+- **Storage (Arweave/IPFS):** For decentralized video storage.
+
+## 📦 Setup Instructions for Developers
+
+1. **Install Dependencies:**
+   ```bash
+   npm install
+   ```
+
+2. **Run Local Server:**
+   ```bash
+   npm run dev
+   ```
+
+3. **Build for Mobile (Capacitor):**
+   ```bash
+   npm run build
+   npx cap sync
+   npx cap open ios  # For Xcode
+   npx cap open android # For Android Studio
+   ```
+
+## 🔐 Security Features (Implemented in UI)
+- **Biometric Simulator:** `BiometricScanner.tsx` provides a UI flow for FaceID/TouchID.
+- **Anti-Rug Checks:** The `InvestView` displays Mock Data regarding Liquidity Locks and Mint Authority. This needs to be connected to real on-chain data.
+
+## 🎨 Design Guidelines
+- **Theme:** Cyberpunk / High-Tech / Solana
+- **Primary Colors:** Neon Green (`#14F195`), Solana Purple (`#9945FF`), Slate Black (`#020617`).
+- **Font:** Inter (UI) + Space Mono (Data/Numbers).
+
+---
+*This codebase is the intellectual property of Jonathan L.*
