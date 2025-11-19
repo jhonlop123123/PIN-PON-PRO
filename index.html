@@ -1,6 +1,5 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
@@ -18,6 +17,11 @@
     
     <title>PinPon - Solana Video Challenges</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Critical Polyfills for Node.js libraries (Solana, GenAI) in Browser
+      window.global = window;
+      window.process = { env: {} };
+    </script>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
       
@@ -63,16 +67,16 @@
         -webkit-text-fill-color: transparent;
       }
     </style>
-  <script type="importmap">
+<script type="importmap">
 {
   "imports": {
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
     "react": "https://aistudiocdn.com/react@^19.2.0",
-    "recharts": "https://aistudiocdn.com/recharts@^3.4.1",
     "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
     "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
-    "@solana/web3.js": "https://aistudiocdn.com/@solana/web3.js@^1.91.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.4.1",
+    "@solana/web3.js": "https://aistudiocdn.com/@solana/web3.js@^1.98.4",
     "@capacitor/cli": "https://aistudiocdn.com/@capacitor/cli@^7.4.4",
     "vite": "https://aistudiocdn.com/vite@^7.2.2",
     "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1"

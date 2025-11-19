@@ -7,4 +7,9 @@ export default defineConfig({
   build: {
     outDir: 'dist',
   },
+  // Polyfills for Node.js globals required by Solana/Gemini libraries
+  define: {
+    'process.env': {},
+    'global': 'window',
+  }
 });

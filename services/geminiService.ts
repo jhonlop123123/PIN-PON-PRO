@@ -1,28 +1,21 @@
 
 import { GoogleGenAI } from "@google/genai";
 
-// Note: In a real production app, never expose keys on the client side directly if not using an env var strictly.
-// Following instructions to use process.env.API_KEY.
+// The API key must be obtained exclusively from the environment variable process.env.API_KEY.
+// We provide a fallback string to prevent the 'new GoogleGenAI' constructor from throwing immediately
+// if the environment variable is undefined during initialization (common in browser runtime).
+const apiKey = process.env.API_KEY || "dummy_key_for_init";
 
 let ai: GoogleGenAI | null = null;
-
 try {
-    // Check if process is defined to avoid ReferenceError in browser environments
-    // @ts-ignore
-    const apiKey = typeof process !== 'undefined' && process.env ? process.env.API_KEY : undefined;
-    
-    if (apiKey) {
-        ai = new GoogleGenAI({ apiKey });
-    } else {
-        console.warn("Gemini API Key missing or process.env not available - AI features will be disabled.");
-    }
-} catch (e) {
-    console.error("Failed to initialize GoogleGenAI", e);
+    ai = new GoogleGenAI({ apiKey });
+} catch (error) {
+    console.error("Gemini AI client initialization failed:", error);
 }
 
 export const analyzeTokenPotential = async (tokenSymbol: string, currentPrice: number, trend: number): Promise<string> => {
-    if (!ai) {
-        return "Análisis de IA no disponible: Falta API Key o configuración de entorno.";
+    if (!ai || apiKey === "dummy_key_for_init") {
+        return "Análisis de IA no disponible (Falta API Key).";
     }
 
     try {
@@ -41,9 +34,9 @@ export const analyzeTokenPotential = async (tokenSymbol: string, currentPrice: n
             contents: prompt,
         });
 
-        return response.text || "Falló el análisis de generación.";
+        return response.text || "No se pudo generar el análisis.";
     } catch (error) {
         console.error("Gemini analysis error:", error);
-        return "Congestión en la Red Neuronal. No se pudo obtener el análisis en vivo.";
+        return "Error en la red neuronal. Intenta más tarde.";
     }
 };
